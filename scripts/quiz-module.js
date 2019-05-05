@@ -17,8 +17,8 @@ let QuestionData = [
     answers: [
       {id: 1, answer: "To get from the left to the right."},
       {id: 2, answer: "To get to school."},
-      {id: 3, answer: "To get to work"},
-      {id: 4, answer: "Because he could"}
+      {id: 3, answer: "To get to work."},
+      {id: 4, answer: "Because he could."}
     ],
     correct: 1
   },
@@ -28,8 +28,8 @@ let QuestionData = [
     answers: [
       {id: 1, answer: "Banana."},
       {id: 2, answer: "Apple."},
-      {id: 3, answer: "Oranges"},
-      {id: 4, answer: "Land Shark"}
+      {id: 3, answer: "Oranges."},
+      {id: 4, answer: "Land Shark."}
     ],
     correct: 4
   },
@@ -39,8 +39,8 @@ let QuestionData = [
     answers: [
       {id: 1, answer: "I did."},
       {id: 2, answer: "We did."},
-      {id: 3, answer: "Who Who"},
-      {id: 4, answer: "They did"}
+      {id: 3, answer: "Who Who."},
+      {id: 4, answer: "They did."}
     ],
     correct: 3
   }

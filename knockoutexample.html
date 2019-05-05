@@ -1,0 +1,97 @@
+<!--
+============================================
+; Title: Web 330 Group Project
+; Author: Lance Desrouleaux, Troy Martin, Adam Donner, Reva Baumann
+; Date: 05/03/2019
+; Modified By:
+; 05/03/2019 Troy Martin - Initial file template
+; Description: JavaScript Quiz
+;===========================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="google" content="notranslate">
+    <meta http-equiv="Content-Language" content="en">
+    <title>JavaScript Quiz</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <style>
+      li{
+        list-style-type: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div role="main" class="container">
+      <div class="row jumbotron">
+        <!-- bind the div to the main template to output the current question -->
+        <div class="question row" data-bind="template: {name: 'question-template', data: question}">
+
+        </div>
+      </div>
+      <p>
+        <button id="btnNext" class="btn btn-primary">Next</button>
+      </p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-debug.js" integrity="sha256-M5ZomNNnrnEB2WjSbnty5GWGqq6UuAAVNnWECisgEis=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="scripts/quiz-module.js"></script>
+
+    <script>
+      // the viewmodel used to display the current question, using an observable to display the current question
+      var questionViewModel = { question: ko.observable() };
+      // jQuery on ready
+      $(function(){
+        // start the quiz and get the first question, set the observable on the view model
+        questionViewModel.question(quizModule.startQuiz());
+        // this initialize all the template binding
+        ko.applyBindings(questionViewModel);
+
+        // get the next question and update the observable
+        $("#btnNext").on("click", function(){
+          // get the selected answer from the group
+          let answerId = $("input[name='answer']:checked").val();
+          if(answerId === undefined ){
+            alert("no answer");
+          }
+          else{
+            // set the answer in the module and get the next question, update the observable
+            questionViewModel.question(quizModule.setAnswer(answerId));
+          }
+        })
+
+      });
+
+
+
+    </script>
+
+    <!-- main template for the question -->
+    <script type="text/html" id="question-template">
+      <!-- bind the question text -->
+      <div class="row col-12" data-bind="text: question"></div>
+      <div class="row">
+        <div class="col">
+        <!-- bind the answer template to the unordered list, and bind to the answers -->
+        <ul data-bind="template: {name: 'answer-template', foreach: answers}"></ul>
+      </div>
+      </div>
+    </script>
+
+    <!-- Template to display answers -->
+    <script type="text/html" id="answer-template">
+      <li>
+          <!-- data bind the attributes to properties on the answer, checked binding back to the selected answer for the question-->
+          <input type="radio" name="answer" data-bind="attr:{id: 'answer'+id, value: id}, checked:$parent.userAnswerId" />
+          <span data-bind="text: answer">
+      </li>
+    </script>
+  </body>
+</html>
