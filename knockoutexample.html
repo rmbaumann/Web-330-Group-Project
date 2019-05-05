@@ -47,6 +47,7 @@
     <script>
       // the viewmodel used to display the current question, using an observable to display the current question
       var questionViewModel = { question: ko.observable() };
+
       // jQuery on ready
       $(function(){
         // start the quiz and get the first question, set the observable on the view model
@@ -54,10 +55,12 @@
         // this initialize all the template binding
         ko.applyBindings(questionViewModel);
 
-        // get the next question and update the observable
+        // set the click event of the next button
         $("#btnNext").on("click", function(){
           // get the selected answer from the group
           let answerId = $("input[name='answer']:checked").val();
+
+          // if there is not an answer show a warning
           if(answerId === undefined ){
             alert("no answer");
           }
