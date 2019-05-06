@@ -1,0 +1,55 @@
+<!--
+============================================
+; Title: Web 330 Group Project
+; Author: Lance Desrouleaux, Troy Martin, Adam Donner, Reva Baumann
+; Date: 05/03/2019
+; Modified By:
+; 05/03/2019 Troy Martin - Initial file template
+; Description: JavaScript Quiz
+;===========================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="google" content="notranslate">
+    <meta http-equiv="Content-Language" content="en">
+    <title>JavaScript Quiz</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-debug.js" integrity="sha256-M5ZomNNnrnEB2WjSbnty5GWGqq6UuAAVNnWECisgEis=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="scripts/quiz-module.js"></script>
+
+    <script>
+      // jQuery on ready
+      $(function(){
+        // start the quiz and get the first question
+        let currentQuestion = quizModule.startQuiz();
+        console.log(currentQuestion);
+
+        // when the user answers a question you can set the answer and get the next question
+        currentQuestion = quizModule.setAnswer(2);
+        console.log(currentQuestion);
+        currentQuestion = quizModule.setAnswer(4);
+        console.log(currentQuestion);
+
+        // this would get you the first question again
+        currentQuestion = quizModule.setAnswer(3);
+        console.log(currentQuestion);
+
+        // when the user is done you get a summary with an array of correct, missed and no answer questions, the score and the rank
+        let summary = quizModule.getSummary();
+        console.log(summary)
+      });
+
+    </script>
+  </body>
+</html>
