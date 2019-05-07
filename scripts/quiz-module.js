@@ -13,12 +13,27 @@
 let QuestionData = [
   {
     id: 1,
-    question: "Why did the chicken cross the road?",
+    question: "Which of these is the correct syntax?",
     answers: [
-      {id: 1, answer: "To get from the left to the right."},
-      {id: 2, answer: "To get to school."},
-      {id: 3, answer: "To get to work."},
-      {id: 4, answer: "Because he could."}
+      {id: 1,
+      answer:
+`<pre>function clearAll() {
+  document.getElementsByClassName("independence")[0].style.visibility = 'hidden';
+};</pre>`},
+      {id: 2,
+      answer:
+`<pre>function clearAll() {
+  getElementsByClassName("independence")[0].style.visibility = 'hidden';
+};</pre>`},
+      {id: 3,
+      answer:
+`<pre>function clearAll() {
+  document.getByClassName("independence")[0].style.visibility = 'hidden';</pre>`},
+      {id: 4,
+        answer:
+`<pre>function clearAll() {
+  document.("independence")[0].style.visibility = 'hidden';
+}</pre>`}
     ],
     correct: 1
   },
