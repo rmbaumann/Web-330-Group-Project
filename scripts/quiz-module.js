@@ -39,26 +39,83 @@ let QuestionData = [
   },
   {
     id: 2,
-    question: "Knock, knock, who is there?",
+    question: "Which of these is the correct syntax?",
     answers: [
-      {id: 1, answer: "Banana."},
-      {id: 2, answer: "Apple."},
-      {id: 3, answer: "Oranges."},
-      {id: 4, answer: "Land Shark."}
+      {id: 1,
+      answer:`<pre>$(btn).on("click", function(){}</pre>`},
+      {id: 2,
+      answer:`<pre>$(#btn).on(click, function(){}</pre>`},
+      {id: 3,
+      answer:`<pre>$("#btn").on("click", function(){}</pre>`},
+      {id: 4,
+      answer:`<pre>(#btn").on("click", function(){}</pre>`}
     ],
-    correct: 4
+    correct: 1
   },
   {
     id: 3,
-    question: "Who let the dog out?",
+    question: "Which of these is the correct syntax?",
     answers: [
-      {id: 1, answer: "I did."},
-      {id: 2, answer: "We did."},
-      {id: 3, answer: "Who Who."},
-      {id: 4, answer: "They did."}
+      {id: 1,
+      answer:`<pre>&lt;button type="button" onclick= "document.getElementById('.furniture').innerHTML = new Date()"&gt;</pre>`},
+      {id: 2,
+      answer:`<pre>&lt;button type="button" onclick= "getElementById(‘#furniture').innerHTML = new Date()"&gt;</pre>`},
+      {id: 3,
+      answer:`<pre>&lt;button type="button" onclick= "getElementById('furniture').innerHTML = new Date()"&gt;</pre>`},
+      {id: 4,
+      answer:`<pre>&lt;button type="button" onclick= "document.getElementById('furniture').innerHTML = new Date()"&gt;</pre>`}
+    ],
+    correct: 1
+  },
+  {
+    id: 4,
+    question: "What is the term used for the space between the curly braces of a function?",
+    answers: [
+      {id: 1, answer: "The function parameters."},
+      {id: 2, answer: "The function arguments."},
+      {id: 3, answer: "The function body."},
+      {id: 4, answer: "The function whitespace."}
     ],
     correct: 3
-  }
+  },
+  {
+    id: 5,
+    question: "What is the name of the function on the console object used to output values to the screen?",
+    answers: [
+      {id: 1, answer: "console.draw"},
+      {id: 2, answer: "console.log"},
+      {id: 3, answer: "console.output"},
+      {id: 4, answer: "console.writeLine"}
+    ],
+    correct: 2
+  },
+  {
+    id: 6,
+    question: "Which is an example of a constructor prototype?",
+    answers: [
+      {id: 1,
+      answer:
+`<pre>Song.constructor.toString = function(){
+  return \`\${this.title} performed by \${this.artist}\`;
+}</pre>`},
+      {id: 2,
+      answer:
+`<pre>Song.toString = function(){
+  return \`\${this.title} performed by \${this.artist}\`;
+}</pre>`},
+      {id: 3,
+      answer:
+`<pre>this.toString = function(){
+  return \`\${this.title} performed by \${this.artist}\`;
+}</pre>`},
+      {id: 4,
+        answer:
+`<pre>Song.prototype.toString = function(){
+  return \`\${this.title} performed by \${this.artist}\`;
+}</pre>`}
+    ],
+    correct: 4
+  },
 ]
 
 // declare the question factory
