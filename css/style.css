@@ -6,3 +6,35 @@ body{
   background:#009fb7;
   color:white;
 }
+
+
+/**
+  The following CSS is for prototyping only
+**/
+.container{
+  background-color: white;
+}
+li{
+  list-style-type: none;
+}
+.space{
+  margin-top: 4rem;
+}
+.row--top--buffer{
+  margin-top:1.3rem;
+}
+.answer pre{
+  color: #ffffff !important;
+  text-align: left !important;
+  margin-bottom: 0 !important;
+}
+.answer{
+  text-align: left !important;
+}
+.selectedAnswer{
+  background-color: green !important;
+  border-color: green !important;
+}
+.selectedAnswer:hover{
+  background-color: lightgreen !important;
+}
