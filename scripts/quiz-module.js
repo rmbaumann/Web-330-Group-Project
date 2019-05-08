@@ -324,6 +324,10 @@ var quizModule = (function(exports){
     return questions.length;
   };
 
+  exports.save = function(answer){
+
+  }
+
   // return the exports object to expose the public methods and variables
   return exports;
 
