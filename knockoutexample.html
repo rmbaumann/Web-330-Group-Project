@@ -23,6 +23,14 @@
       li{
         list-style-type: none;
       }
+      .row--top--buffer{
+        margin-top:1.3rem;
+      }
+      .answer pre{
+        color: #ffffff !important;
+        text-align: left !important;
+        margin-bottom: 0 !important;
+      }
     </style>
   </head>
   <body>
@@ -32,10 +40,10 @@
         <div class="question row col-12" data-bind="template: {name: 'question-template', data: question}">
 
         </div>
+        <div class="question row col-12" data-bind="template: {name: 'question-button-template', data: question}">
+
+        </div>
       </div>
-      <p>
-        <button id="btnNext" class="btn btn-primary">Next</button>
-      </p>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-debug.js" integrity="sha256-M5ZomNNnrnEB2WjSbnty5GWGqq6UuAAVNnWECisgEis=" crossorigin="anonymous"></script>
@@ -85,6 +93,18 @@
         <div class="row col-12" data-bind="template: {name: 'answer-template', foreach: answers}">
         </div>
       </div>
+      <p>
+        <button id="btnNext" class="btn btn-primary">Next</button>
+      </p>
+    </script>
+
+    <script type="text/html" id="question-button-template">
+      <!-- bind the question text -->
+      <div class="row col-12" data-bind="text: question"></div>
+        <!-- bind the answer template to the unordered list, and bind to the answers -->
+        <div class="row col-12" data-bind="template: {name: 'answer-button-template', foreach: answers}">
+        </div>
+      </div>
     </script>
 
     <!-- Template to display answers -->
@@ -97,5 +117,13 @@
           <div class="col-11" data-bind="html: answer"></div>
         </div>
     </script>
+
+    <script type="text/html" id="answer-button-template">
+      <div class="row col-12 row--top--buffer">
+        <button class="btn btn-primary btn-block answer" data-bind="html:answer,attr:{id: 'answer'+id}"></button>
+      </div>
+    </script>
+
+
   </body>
 </html>
