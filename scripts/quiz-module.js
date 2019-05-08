@@ -324,8 +324,8 @@ var quizModule = (function(exports){
     return questions.length;
   };
 
-  exports.save = function(answer){
-
+  exports.getQuestions = function(){
+    return questions;
   }
 
   // return the exports object to expose the public methods and variables

@@ -23,6 +23,9 @@
       li{
         list-style-type: none;
       }
+      .space{
+        margin-top: 4rem;
+      }
       .row--top--buffer{
         margin-top:1.3rem;
       }
@@ -44,10 +47,18 @@
     <div role="main" class="container">
       <div class="row col-12 jumbotron">
         <!-- bind the div to the main template to output the current question -->
+        <h5>Answers as radio buttons</h5>
         <div class="question row col-12" data-bind="template: {name: 'question-template', data: question}">
 
         </div>
+
+        <h5 class="space">Answers as buttons</h5>
         <div class="question row col-12" data-bind="template: {name: 'question-button-template', data: question}">
+
+        </div>
+
+        <h5 class="space">List of questions only</h5>
+        <div class="question row col-12" data-bind="template: {name: 'question-list-template', foreach: list}">
 
         </div>
       </div>
@@ -62,12 +73,17 @@
 
     <script>
       // the viewmodel used to display the current question, using an observable to display the current question
-      var questionViewModel = { question: ko.observable() };
+      var questionViewModel = {
+        question: ko.observable(),
+        list:  ko.observableArray()
+      };
 
       // jQuery on ready
       $(function(){
         // start the quiz and get the first question, set the observable on the view model
         questionViewModel.question(quizModule.startQuiz());
+        questionViewModel.list(quizModule.getQuestions());
+
         // this initialize all the template binding
         ko.applyBindings(questionViewModel);
 
@@ -115,6 +131,11 @@
         <div class="row col-12" data-bind="template: {name: 'answer-button-template', foreach: answers}">
         </div>
       </div>
+    </script>
+
+    <script type="text/html" id="question-list-template">
+      <!-- bind the question text -->
+      <div class="row col-12 row--top--buffer" data-bind="text: question"></div>
     </script>
 
     <!-- Template to display answers -->
