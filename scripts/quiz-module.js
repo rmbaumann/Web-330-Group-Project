@@ -116,6 +116,105 @@ let QuestionData = [
     ],
     correct: 4
   },
+  {
+    id: 7,
+    question: "Inside what HTML element, do we put JavaScript?",
+    answers: [
+      {id: 1,
+      answer:
+`<pre>&lt;script&gt;</pre>`},
+      {id: 2,
+      answer:
+`<pre>&lt;javascript&gt;</pre>`},
+      {id: 3,
+      answer:
+`<pre>&lt;js&gt;</pre>`},
+      {id: 4,
+        answer:
+`<pre>&lt;scriptjs&gt;</pre>`}
+    ],
+    correct: 1
+  },
+  {
+    id: 8,
+    question: "How do you write a message in an alert box?",
+    answers: [
+      {id: 1,
+      answer:
+`<pre>alert("message")</pre>`},
+      {id: 2,
+      answer:
+`<pre>msgBox("message")</pre>`},
+      {id: 3,
+      answer:
+`<pre>msg("message")</pre>`},
+      {id: 4,
+        answer:
+`<pre>alertBox("message")</pre>`}
+    ],
+    correct: 1
+  },
+  {
+    id: 9,
+    question: "How do you create a function in JavaScript?",
+    answers: [
+      {id: 1,
+      answer:
+`<pre>function myFunction()</pre>`},
+      {id: 2,
+      answer:
+`<pre>msgBox("message")</pre>`},
+      {id: 3,
+      answer:
+`<pre>function:myFunction()</pre>`},
+      {id: 4,
+        answer:
+`<pre>function = myFunction()`}
+    ],
+    correct: 1
+  },
+  {
+    id: 10,
+    question: `Is this a proper for statement?
+<div class='row col-12'>
+<pre>for (var counter = 0; counter < 10; counter++) {
+  var chance = randomNumber();
+  counter = 6;
+}</pre></div>`,
+    answers: [
+      {id: 1,
+      answer: `true`},
+      {id: 2,
+      answer: `false`}
+    ],
+    correct: 2
+  },
+  {
+    id: 11,
+    question: "An array is an order collection of values.  What are those values called?",
+    answers: [
+      {id: 1,
+      answer: `Index`},
+      {id: 2,
+      answer: `Element`},
+      {id: 3,
+      answer: `Object`},
+      {id: 4,
+      answer: `Property`}
+    ],
+    correct: 2
+  },
+  {
+    id: 12,
+    question: `The value of an evaluated express in a switch statement can be a string?`,
+    answers: [
+      {id: 1,
+      answer: `true`},
+      {id: 2,
+      answer: `false`}
+    ],
+    correct: 1
+  }
 ]
 
 // declare the question factory

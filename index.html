@@ -110,7 +110,7 @@
     <!-- main template for the question -->
     <script type="text/html" id="question-template">
       <!-- bind the question text -->
-      <div class="row col-12" data-bind="text: question"></div>
+      <div class="row col-12" data-bind="html: question"></div>
         <!-- bind the answer template to the unordered list, and bind to the answers -->
         <div class="row col-12" data-bind="template: {name: 'answer-template', foreach: answers}"></div>
       </div>
@@ -118,7 +118,7 @@
 
     <script type="text/html" id="question-button-template">
       <!-- bind the question text -->
-      <div class="row col-12" data-bind="text: question"></div>
+      <div class="row col-12" data-bind="html: question"></div>
         <!-- bind the answer template to the unordered list, and bind to the answers -->
         <div class="row col-12" data-bind="template: {name: 'answer-button-template', foreach: answers}"></div>
       </div>
