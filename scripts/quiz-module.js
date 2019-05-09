@@ -252,6 +252,7 @@ var quizModule = (function(exports){
   let factory = new QuestionFactory();
   let questions = [];
   let questionIndex = 0;
+  let selectedQuestions = [];
 
   /*
   ; Params: none
