@@ -215,7 +215,7 @@ let QuestionData = [
     ],
     correct: 1
   }
-]
+];
 
 // declare the question factory
 let QuestionFactory = function(){};
@@ -260,9 +260,44 @@ var quizModule = (function(exports){
   ; Description: Function to initialize the quiz.
   */
   function initializeQuiz(){
+    // Call the Array forEach function to loop the data and construct a question and answers
     QuestionData.forEach(q => {
       questions.push(factory.createQuestion(q));
     });
+
+    // Call the shuffleQuestions function to randomize the questions
+    shuffleQuestions(questions);
+    // Call the Array forEach function to get the first 10 questions in the array
+    questions.forEach((q, i) => {
+      if(i < 10){
+        // Call the Array push function to add the question to the list of selected questions
+        selectedQuestions.push(q);
+      }
+    })
+  }
+
+  /*
+  ; Params: questions: Array
+  ; Response: undefined
+  ; Description: Function to randomly shuffle the contents of the questions array.
+  ; By Christoph https://stackoverflow.com/a/962890
+  */
+  function shuffleQuestions(questions) {
+    let index = questions.length;
+
+    // Check to see if there are items in the array
+    if(index){
+      // Do until the index is 0 (false)
+      while(--index) {
+        // Randomly pick an index value
+        let current = Math.floor(Math.random() * (index + 1));
+        // Get the question in the index location
+        let tmp = questions[current];
+        // swap the questions by index position
+        questions[current] = questions[index];
+        questions[index] = tmp;
+      }
+    }
   }
 
   /*
@@ -271,7 +306,7 @@ var quizModule = (function(exports){
   ; Description: Function retrieve the current question.
   */
   function getCurrentQuestion() {
-    return questions[questionIndex];
+    return selectedQuestions[questionIndex];
   }
 
   /*
@@ -280,7 +315,7 @@ var quizModule = (function(exports){
   ; Description: Function to return the index of the last question.
   */
   function getLastIndex(){
-    return questions.length - 1;
+    return selectedQuestions.length - 1;
   }
 
   /*
@@ -309,7 +344,7 @@ var quizModule = (function(exports){
   ; Description: Function to set the answer of the current question.
   */
   function setQuestionAnswer(answerId){
-    questions[questionIndex].userAnswerId = answerId;
+    selectedQuestions[questionIndex].userAnswerId = answerId;
   }
 
   /*
@@ -318,9 +353,9 @@ var quizModule = (function(exports){
   ; Description: Function calculate and return the summary.
   */
   function getSummary(){
-    let correct = questions.filter(q => q.isCorrect());
-    let missed = questions.filter(q => !q.isCorrect());
-    let noAnswer = questions.filter(q => q.userAnswerId === -1);
+    let correct = selectedQuestions.filter(q => q.isCorrect());
+    let missed = selectedQuestions.filter(q => !q.isCorrect());
+    let noAnswer = selectedQuestions.filter(q => q.userAnswerId === -1);
 
     return {
       correct,
@@ -421,11 +456,11 @@ var quizModule = (function(exports){
   ; Description: Function to retrieve the number of questions.
   */
   exports.numberOfQuestions = function(){
-    return questions.length;
+    return selectedQuestions.length;
   };
 
   exports.getQuestions = function(){
-    return questions;
+    return selectedQuestions;
   }
 
   // return the exports object to expose the public methods and variables
