@@ -7,6 +7,11 @@ body{
   color:white;
 }
 
+pre{
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  text-align: justify;
+}
 
 /**
   The following CSS is for prototyping only
