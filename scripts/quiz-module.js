@@ -447,7 +447,7 @@ var quizModule = (function(exports){
   ; Description: Function to retrieve the index of the current question.
   */
   exports.currentQuestionNumber = function(){
-    return currentQuestionNumber;
+    return questionIndex;
   };
 
   /*
