@@ -206,7 +206,7 @@ let QuestionData = [
   },
   {
     id: 12,
-    question: `The value of an evaluated express in a switch statement can be a string?`,
+    question: `The value of an evaluated expression in a switch statement can be a string?`,
     answers: [
       {id: 1,
       answer: `true`},
