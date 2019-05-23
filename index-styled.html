@@ -161,7 +161,6 @@
             // set the answer in the module and get the next question, update the observable
             questionViewModel.question(quizModule.setAnswer(answerId));
           }
-
           questionViewModel.currentQuestion(quizModule.currentQuestionNumber());
 
         })
@@ -182,6 +181,11 @@
 
       }
 
+      // navigation click
+      function setQuestion(index){
+        questionViewModel.currentQuestion(index);
+        questionViewModel.question(quizModule.getQuestionByIndex(index));
+      }
     </script>
 
 
@@ -210,7 +214,7 @@
 
     <script type="text/html" id="question-nav-template">
       <li class="nav-item" data-bind="css:{active:($root.currentQuestion()===$index())}">
-        <a class="nav-link" href="javascript:void();" data-bind="html:`Question `+($index() + 1)" ></a>
+        <a class="nav-link" href="javascript:void" data-bind="html:`Question `+($index() + 1), click:function(data, event){setQuestion($index())}" ></a>
       </li>
     </script>
 
