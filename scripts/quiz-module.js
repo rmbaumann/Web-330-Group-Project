@@ -463,6 +463,11 @@ var quizModule = (function(exports){
     return selectedQuestions;
   }
 
+  exports.getQuestionByIndex = function(index){
+    questionIndex = index;
+    return getCurrentQuestion();
+  };
+
   // return the exports object to expose the public methods and variables
   return exports;
 
