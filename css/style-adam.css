@@ -74,8 +74,7 @@ hr {
   background-color: #fed766;
   color: #272727;
   border: none;
-  font-size: 120%;
-  font-weight: bold;
+  font-size: 100%;
 }
 
 .btn-secondary:hover {

@@ -202,7 +202,7 @@
     <!-- Template to display answers -->
 
     <script type="text/html" id="answer-button-template">
-      <div class="row col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-3 row--top--buffer padding" id="answer-button-grid">
+      <div class="row col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 row--top--buffer padding" id="answer-button-grid">
         <!-- data bind the html, attributes and css and the click event css, will add class selectedAnswer if answer is the previously selected user answer for the question-->
         <button class="btn btn-secondary btn-block answer" data-bind="html:answer, attr:{id: 'answer'+id}, click:saveAnswer, css:{selectedAnswer:$parent.userAnswerId===id}"></button>
       </div>
