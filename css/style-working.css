@@ -21,13 +21,19 @@ pre{
   The following CSS is for prototyping only
 **/
 #question-ask {
-  font-size: 200%;
+  font-size: 150%;
   width: 75%;
   margin: 0 auto;
 }
-background {
-  height: 100%;
-  width: 100%
+
+h4 {
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+}
+
+h5 {
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
 }
 
 /* Developer Icons */
@@ -53,8 +59,7 @@ background {
 }
 
 .fa-html5, .fa-js, .fa-css3, .fa-bootstrap {
-  font-size: 4rem;
-  margin: 1rem;
+  font-size: 2rem;
 }
 
 hr {
@@ -86,7 +91,7 @@ hr {
 }
 
 .navbar-nav li {
-  padding-right: 20px;
+  padding-right: 10px;
 }
 
 .nav-link {
