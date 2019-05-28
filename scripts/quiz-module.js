@@ -471,6 +471,8 @@ var quizModule = (function(exports){
   // return the exports object to expose the public methods and variables
   return exports;
 
+
+
 // will create the quizModule or an empty object
 }(quizModule || {}));
 
