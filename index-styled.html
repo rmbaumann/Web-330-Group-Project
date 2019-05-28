@@ -80,8 +80,6 @@
           </div>
       </div>
 
-
-
     <div class="container-fluid padding" id="developed-using">
         <hr>
         <div class="row welcome text-center">
@@ -179,6 +177,31 @@
         questionViewModel.currentQuestion(index);
         questionViewModel.question(quizModule.getQuestionByIndex(index));
       }
+
+
+
+
+      // SUBMIT BUTTON
+      function checkAnswer(){
+      // use getElementsByName because we have an array which it will loop through
+      choices = document.getElementsByName("choices");
+      for(var i=0; i<choices.length; i++){
+        if(choices[i].checked){
+          choice = choices[i].value;
+        }
+      }
+      // checks if answer matches the correct choice
+      if(choice == questions[pos][4]){
+        //each time there is a correct answer this value increases
+        correct++;
+      }
+      // changes position of which character user is on
+      pos++;
+      // then the renderQuestion function runs again to go to next question
+      renderQuestion();
+    }
+
+    window.addEventListener("load", renderQuestion, false);
     </script>
 
 
@@ -209,6 +232,17 @@
       <li class="nav-item" data-bind="css:{active:($root.currentQuestion()===$index())}">
         <a class="nav-link" href="javascript:void" data-bind="html:`Question `+($index() + 1), click:function(data, event){setQuestion($index())}" ></a>
       </li>
+    </div>
+
+    <!-- SUBMIT BUTTON -->
+    <div class="submit-button">
+      <button id="submit">Submit Quiz</button>
+    <div id="results"></div>
+
+
+
+
+
     </script>
 
 
